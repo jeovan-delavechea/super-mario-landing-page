@@ -1,0 +1,87 @@
+.cabecalho .ativo-menu{
+    display: none;
+    width: 60px;
+    height: 60px;
+    align-self: flex-end;
+}
+
+.cabecalho nav label{
+    display: flex;
+    flex-direction: column;
+}
+
+.cabecalho .ativo-menu .hamburger{
+    background-color: #ffffff;
+    position: relative;
+    display: block;
+    width: 30px;
+    height: 2px;
+    top: 29px;
+    left: 15px;
+    transition: 0.5s ease-in-out;
+}
+
+.cabecalho .ativo-menu .hamburger:before, .cabecalho .ativo-menu .hamburger:after{
+    content: '';
+    background-color: #ffffff;
+    position: absolute;
+    display: block;
+    width: 100%;
+    height: 100%;
+    transition: 0.5s ease-in-out;
+}
+.cabecalho .ativo-menu .hamburger:before{
+    top: -10px;
+}
+
+.cabecalho .ativo-menu .hamburger:after{
+    bottom: -10px;
+}
+
+.cabecalho input{
+    display: none;
+}
+
+.cabecalho input:checked ~ label .hamburger{
+    transform: rotate(45deg);
+    background-color: #263238;
+}
+.cabecalho input:checked ~ label .hamburger::before{
+    transform: rotate(90deg);
+    background-color: #263238;
+    top: 0;
+}
+.cabecalho input:checked ~ label .hamburger::after{
+    transform: rotate(90deg);
+    background-color: #263238;
+    bottom: 0;
+}
+
+@media(max-width: 900px){
+    .cabecalho .ativo-menu{
+        display: block;
+        cursor: pointer;
+    }
+    .cabecalho .menu{
+        display: none;
+        width: 200px;
+        background-color: #263238;
+        padding: 20px;
+        margin-right: 15px;
+        border-radius: 10px;
+        opacity: 0.9;
+    }
+    .cabecalho input:checked ~ .menu{
+        display: block;
+    }
+    .cabecalho nav{
+        position: absolute;
+        top: 8px;
+        right: 0;
+        z-index: 1;
+    }
+    .cabecalho nav .menu a{
+        display: block;
+        text-align: center;
+    }
+}
